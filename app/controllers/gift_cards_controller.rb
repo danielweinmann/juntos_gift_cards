@@ -50,6 +50,10 @@ class GiftCardsController < StateController
   end
 
   def redeem
+    authorize @gift_card
+    return render json: { error: t('.no_value') }, status: 422 unless params[:value].present?
+    return render json: { error: t('.wrong_value') }, status: 422 unless params[:value].to_i == @gift_card.value.to_i
+    return render json: { error: t('.cant_redeem') }, status: 422 unless @gift_card.can_redeem?
     transition_state(:redeem)
   end
 
@@ -64,7 +68,7 @@ class GiftCardsController < StateController
   end
 
   def set_gift_card
-    @gift_card = GiftCard.find(params[:id])
+    @gift_card = GiftCard.find_by_code(params[:id])
   end
 
   def transition_state(transition)

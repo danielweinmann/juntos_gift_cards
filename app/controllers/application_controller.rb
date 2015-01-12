@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: %i[index], unless: -> {devise_controller?}
   before_action :authenticate_api!
   before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token, if: -> { request.headers["HTTP_AUTHORIZATION"].present? }
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -36,7 +37,7 @@ class ApplicationController < ActionController::Base
         if api_key
           sign_in(:user, api_key.user)
         else
-          return render json: {}, status: :unauthorized
+          return render json: { error: t('unauthorized') }, status: :unauthorized
         end
       end
     end

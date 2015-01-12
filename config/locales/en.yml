@@ -3,6 +3,7 @@ en:
   destroy: 'Delete'
   logout: 'Logout'
   profile: 'Profile'
+  unauthorized: 'Unauthorized'
   activerecord:
     state_machines:
       user:
@@ -53,3 +54,8 @@ en:
         notice: '%{resource_name} deleted successfully.'
         alert: "%{resource_name} couldn't be deleted."
     not_authorized: "You don't have the necessary permissions to execute this action."
+  gift_cards:
+    redeem:
+      no_value: 'You must inform the value of the Gift Card'
+      wrong_value: 'You must inform the correct value of the Gift Card'
+      cant_redeem: 'This Gift Card cannot be redeemed'
