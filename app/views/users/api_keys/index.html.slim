@@ -1,5 +1,5 @@
 - content_for :title do
-  = @user.name
+  = link_to @user.name, users_path
   = " » "
   = ApiKey.model_name.human.pluralize
 - unless @api_keys.empty?
