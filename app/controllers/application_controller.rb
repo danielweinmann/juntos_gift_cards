@@ -20,8 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized(exception)
-    flash[:alert] = t('flash.not_authorized')
-    redirect_to(request.referrer || root_path)
+    if request.headers["HTTP_AUTHORIZATION"].present?
+      return render json: { error: t('unauthorized') }, status: :unauthorized
+    else
+      flash[:alert] = t('flash.not_authorized')
+      redirect_to(request.referrer || root_path)
+    end
   end
 
   def namespace
