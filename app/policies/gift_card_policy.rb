@@ -12,6 +12,14 @@ class GiftCardPolicy < ApplicationPolicy
 
   end
 
+  def redeem?
+    update?
+  end
+
+  def invalidate?
+    update?
+  end
+
   def permitted_attributes
     [:code, :value]
   end

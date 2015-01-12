@@ -1,2 +1,13 @@
+- unless @gift_cards.empty?
+  table
+    thead
+      tr
+        th= GiftCard.human_attribute_name(:user)
+        th= GiftCard.human_attribute_name(:code)
+        th= GiftCard.human_attribute_name(:value)
+        th= GiftCard.human_attribute_name(:state)
+        th
+    tbody
+      = render @gift_cards
 - if policy(GiftCard.new).new?
   = link_to t('helpers.submit.create', model: GiftCard.model_name.human), new_gift_card_path, class: 'button'

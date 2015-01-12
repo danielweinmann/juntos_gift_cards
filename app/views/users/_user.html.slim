@@ -5,8 +5,8 @@ tr
   td
     ul class="button-group round"
       - if user.can_make_pending?
-        li= link_to t('activerecord.state_machines.user.state.events.make_pending'), make_pending_user_path(user), method: :put, class: 'button tiny'
+        li= link_to t('activerecord.state_machines.user.state.events.make_pending'), make_pending_user_path(user), method: :put, data: { confirm: t('confirm') }, class: 'button tiny'
       - if user.can_make_regular?
-        li= link_to t('activerecord.state_machines.user.state.events.make_regular'), make_regular_user_path(user), method: :put, class: 'button tiny'
+        li= link_to t('activerecord.state_machines.user.state.events.make_regular'), make_regular_user_path(user), method: :put, data: { confirm: t('confirm') }, class: 'button tiny'
       - if user.can_make_admin?
-        li= link_to t('activerecord.state_machines.user.state.events.make_admin'), make_admin_user_path(user), method: :put, class: 'button tiny'
+        li= link_to t('activerecord.state_machines.user.state.events.make_admin'), make_admin_user_path(user), method: :put, data: { confirm: t('confirm') }, class: 'button tiny'

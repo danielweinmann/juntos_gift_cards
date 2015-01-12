@@ -1,4 +1,5 @@
 en:
+  confirm: 'Are you sure?'
   logout: 'Logout'
   profile: 'Profile'
   activerecord:
@@ -13,6 +14,15 @@ en:
             make_pending: Make pending
             make_regular: Make regular
             make_admin: Make admin
+      gift_card:
+        state:
+          states:
+            pending: Pending
+            redeemed: Redeemed
+            invalid: Invalidated
+          events:
+            redeem: Redeem
+            invalidate: Invalidate
     models:
       user: User
       gift_card: Gift Card
@@ -32,6 +42,7 @@ en:
         alert: "%{resource_name} couldn't be created."
       update:
         notice: '%{resource_name} updated successfully.'
+        alert: "%{resource_name} couldn't be updated."
       destroy:
         notice: '%{resource_name} deleted successfully.'
         alert: "%{resource_name} couldn't be deleted."

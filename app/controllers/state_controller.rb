@@ -11,7 +11,7 @@ class StateController < ApplicationController
     else
       flash[:alert] = t('flash.actions.update.alert', resource_name: resource_name)
     end
-    redirect_to (redirect_path || resource)
+    respond_with resource, location: -> { redirect_path || resource }
   end
 
 end

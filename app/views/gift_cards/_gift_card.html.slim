@@ -1,0 +1,9 @@
+tr
+  td= gift_card.user.name
+  td= gift_card.code
+  td= gift_card.value
+  td= gift_card.human_state_name
+  td
+    ul class="button-group round"
+      - if gift_card.can_invalidate?
+        li= link_to t('activerecord.state_machines.gift_card.state.events.invalidate'), invalidate_gift_card_path(gift_card), method: :put, data: { confirm: t('confirm') }, class: 'button tiny'

@@ -28,6 +28,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'simple_form'
 
 group :test, :development do
   gem 'letter_opener'
