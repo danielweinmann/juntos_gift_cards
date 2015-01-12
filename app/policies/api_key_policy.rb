@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class ApiKeyPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
 
@@ -22,22 +22,8 @@ class UserPolicy < ApplicationPolicy
     is_admin?
   end
 
-  def make_pending?
-    is_admin?
-  end
-
-  def make_regular?
-    is_admin?
-  end
-
-  def make_admin?
-    is_admin?
-  end
-
-  protected
-
-  def is_owned_by?(user)
-    user.present? && record == user
+  def permitted_attributes
+    [:expires_at]
   end
 
 end

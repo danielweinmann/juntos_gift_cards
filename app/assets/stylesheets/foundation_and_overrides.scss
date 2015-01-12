@@ -201,7 +201,7 @@ $alert-color: #eb7c8f;
 // $header-font-color: $jet;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
-// $header-bottom-margin: .5rem;
+$header-bottom-margin: 1.5rem;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
@@ -1294,7 +1294,7 @@ $panel-margin-bottom: rem-calc(40);
 // These are for controlling the layout, display and margin of tables
 // $table-layout: auto;
 // $table-display: table-cell;
-// $table-margin-bottom: rem-calc(20);
+$table-margin-bottom: rem-calc(40);
 
 // 31. Tabs
 // - - - - - - - - - - - - - - - - - - - - - - - - -

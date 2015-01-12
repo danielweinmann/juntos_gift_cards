@@ -31,6 +31,8 @@ html lang="en"
                       li= link_to t('profile'), edit_user_registration_path
                       li= link_to t('logout'), destroy_user_session_path, method: :delete
     #content.row
+      - if content_for?(:title)
+        h1= yield :title
       - for key, msg in flash
         - unless key == :timedout
           - key = "success" if key == "notice"

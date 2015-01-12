@@ -1,5 +1,6 @@
 en:
   confirm: 'Are you sure?'
+  destroy: 'Delete'
   logout: 'Logout'
   profile: 'Profile'
   activerecord:
@@ -26,6 +27,7 @@ en:
     models:
       user: User
       gift_card: Gift Card
+      api_key: Api key
     attributes:
       user:
         name: Name
@@ -35,6 +37,10 @@ en:
         code: Code
         value: Value
         state: Status
+      api_key:
+        user: User
+        access_token: Access token
+        expires_at: Expires at
   flash:
     actions:
       create:

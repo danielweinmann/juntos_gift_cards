@@ -1,0 +1,15 @@
+- content_for :title do
+  = @user.name
+  = " » "
+  = ApiKey.model_name.human.pluralize
+- unless @api_keys.empty?
+  table
+    thead
+      tr
+        th= ApiKey.human_attribute_name(:access_token)
+        th= ApiKey.human_attribute_name(:expires_at)
+        th
+    tbody
+      = render @api_keys
+- if policy(ApiKey.new).new?
+  = link_to t('helpers.submit.create', model: ApiKey.model_name.human), new_user_api_key_path(@user), class: 'button'

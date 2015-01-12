@@ -1,0 +1,6 @@
+tr
+  td= api_key.access_token
+  td= l(api_key.expires_at) if api_key.expires_at
+  td
+    ul class="button-group round"
+      li= link_to t('destroy'), user_api_key_path(@user, api_key), method: :delete, data: { confirm: t('confirm') }, class: "button tiny alert"

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   has_many :gift_cards
+  has_many :api_keys
   
   before_validation :extract_name_from_email
 

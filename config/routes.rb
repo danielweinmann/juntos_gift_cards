@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       put :make_regular
       put :make_admin
     end
+    resources :api_keys, controller: 'users/api_keys', except: [:show]
   end
 
   root "gift_cards#index"

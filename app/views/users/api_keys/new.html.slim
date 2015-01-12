@@ -1,0 +1,7 @@
+- content_for :title do
+  = @user.name
+  = " » "
+  = t('helpers.submit.create', model: ApiKey.model_name.human)
+= simple_form_for @api_key, url: user_api_keys_path(@user) do |form|
+  = form.input :expires_at, as: :string
+  = form.button :submit

@@ -1,3 +1,5 @@
+- content_for :title do
+  = t('helpers.submit.create', model: GiftCard.model_name.human)
 = simple_form_for @gift_card do |form|
   = form.input :code
   = form.input :value
