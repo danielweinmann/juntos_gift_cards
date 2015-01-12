@@ -33,6 +33,7 @@ gem 'simple_form'
 group :test, :development do
   gem 'letter_opener'
   gem 'spring'
+  gem 'better_errors'
 end
 
 group :production do

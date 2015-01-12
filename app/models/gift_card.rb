@@ -6,6 +6,8 @@ class GiftCard < ActiveRecord::Base
   validates_uniqueness_of :code
   validates :value, numericality: { only_integer: true }, allow_blank: true
 
+  after_initialize :set_initial_code
+
   state_machine initial: :pending do
 
     state :pending
@@ -20,6 +22,12 @@ class GiftCard < ActiveRecord::Base
       transition [:pending] => :invalid
     end
 
+  end
+
+  private
+
+  def set_initial_code
+    self.code = "#{self.user.try(:id)}-#{Time.now.to_i.to_s(36)}-#{(rand * 100).to_i}" unless self.code.present?
   end
 
 end
