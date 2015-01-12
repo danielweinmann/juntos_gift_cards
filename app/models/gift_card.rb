@@ -7,6 +7,7 @@ class GiftCard < ActiveRecord::Base
   validates :value, numericality: { only_integer: true }, allow_blank: true
 
   after_initialize :set_initial_code
+  before_validation :parameterize_code
 
   state_machine initial: :pending do
 
@@ -24,10 +25,18 @@ class GiftCard < ActiveRecord::Base
 
   end
 
+  def to_param
+    self.code
+  end
+
   private
 
   def set_initial_code
     self.code = "#{self.user.try(:id)}-#{Time.now.to_i.to_s(36)}-#{(rand * 100).to_i}" unless self.code.present?
+  end
+
+  def parameterize_code
+    self.code = self.code.parameterize
   end
 
 end
