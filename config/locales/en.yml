@@ -1,0 +1,26 @@
+en:
+  logout: 'Logout'
+  profile: 'Profile'
+  activerecord:
+    models:
+      user: User
+      gift_card: Gift Card
+    attributes:
+      user:
+        name: Name
+      gift_card:
+        user: User
+        code: Code
+        value: Value
+        state: Status
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} created successfully.'
+        alert: "%{resource_name} couldn't be created."
+      update:
+        notice: '%{resource_name} updated successfully.'
+      destroy:
+        notice: '%{resource_name} deleted successfully.'
+        alert: "%{resource_name} couldn't be deleted."
+    not_authorized: "You don't have the necessary permissions to execute this action."

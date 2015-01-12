@@ -1,0 +1,2 @@
+class GiftCardPolicy < ApplicationPolicy
+end
