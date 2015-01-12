@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
         if api_key
           sign_in(:user, api_key.user)
         else
-          raise Pundit::NotAuthorizedError
+          return render json: {}, status: :unauthorized
         end
       end
     end
