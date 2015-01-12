@@ -2,12 +2,24 @@ en:
   logout: 'Logout'
   profile: 'Profile'
   activerecord:
+    state_machines:
+      user:
+        state:
+          states:
+            pending: Pending
+            regular: Regular
+            admin: Admin
+          events:
+            make_pending: Make pending
+            make_regular: Make regular
+            make_admin: Make admin
     models:
       user: User
       gift_card: Gift Card
     attributes:
       user:
         name: Name
+        state: Status
       gift_card:
         user: User
         code: Code

@@ -1,0 +1,2 @@
+- if policy(GiftCard.new).new?
+  = link_to t('helpers.submit.create', model: GiftCard.model_name.human), new_gift_card_path, class: 'button'

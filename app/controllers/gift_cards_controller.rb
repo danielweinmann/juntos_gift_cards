@@ -2,10 +2,14 @@ class GiftCardsController < StateController
   
   before_action :set_gift_card, except: %i[index new]
 
+  after_action :verify_authorized, except: %i[index]
+  after_action :verify_policy_scoped, only: %i[index]
+
   respond_to :html
 
   def index
     @gift_cards = policy_scope(GiftCard)
+    # authorize GiftCard.new
     respond_with @gift_cards
   end
 
@@ -17,6 +21,14 @@ class GiftCardsController < StateController
   def new
     @gift_card = GiftCard.new user: current_user
     authorize @gift_card
+    respond_with @gift_card
+  end
+
+  def create
+    @gift_card = GiftCard.new(gift_card_params)
+    @gift_card.user = current_user
+    authorize @gift_card
+    @gift_card.save
     respond_with @gift_card
   end
 
