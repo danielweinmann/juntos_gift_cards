@@ -76,8 +76,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'giftcards.littlebigmoney.org' }
-  config.action_mailer.asset_host = 'http://giftcards.littlebigmoney.org'
+  config.action_mailer.default_url_options = { :host => 'giftcards.juntos.com.vc' }
+  config.action_mailer.asset_host = 'http://giftcards.juntos.com.vc'
 
   ActionMailer::Base.smtp_settings = {
       port:           '587',
@@ -90,5 +90,5 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
 end
-Rails.application.routes.default_url_options[:host]= 'giftcards.littlebigmoney.org'
+Rails.application.routes.default_url_options[:host]= 'giftcards.juntos.com.vc'
 Rack::Timeout.timeout = 10  # seconds

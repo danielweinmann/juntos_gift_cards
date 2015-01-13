@@ -6,7 +6,7 @@ html lang="en"
     meta name="robots" content="index, follow"
     meta name="description" content=strip_tags(yield :title)
     meta name="author" content="Daniel Weinmann"
-    title= "#{"#{strip_tags(yield :title)} · " if content_for?(:title)} LBM Gift Cards"
+    title= "#{"#{strip_tags(yield :title)} · " if content_for?(:title)} Juntos Gift Cards"
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
@@ -16,7 +16,7 @@ html lang="en"
       nav class="top-bar" data-topbar="true" role="navigation"
         ul class="title-area"
           li class="name"
-            h1= link_to 'LBM Gift Cards', root_path
+            h1= link_to 'Juntos Gift Cards', root_path
           - if current_user
             li class="toggle-topbar menu-icon"
               a href="#"
