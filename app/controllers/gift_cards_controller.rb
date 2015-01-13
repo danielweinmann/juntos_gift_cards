@@ -68,7 +68,7 @@ class GiftCardsController < StateController
   end
 
   def set_gift_card
-    @gift_card = GiftCard.find_by_code(params[:id])
+    @gift_card = GiftCard.find_by_code!(params[:id])
   end
 
   def transition_state(transition)
